@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n filters %}
+
+{% block content %}
+    <h1>{% trans "Customers" %}</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>{% trans "Name" %}:</th>
+            <th>{% trans "Website" %}:</th>
+            <th>{% trans "Industry" %}:</th>
+            <th>{% trans "Country" %}:</th>
+        </tr>
+        {% for customer in customers %}
+            <tr>
+                <td>
+                    <a href="{% url delete_customer customer.id %}" class="pull-right">
+                      <i class="icon icon-trash"></i>
+                    </a>
+                    <a href="{% url edit_customer customer.id %}">{{ customer.name }}</a>
+                </td>
+                <td>{{ customer.website }}</td>
+                <td>{{ customer.industry }}</td>
+                <td>{{ customer.country }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

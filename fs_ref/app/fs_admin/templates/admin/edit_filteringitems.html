@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="admin-filtering-items">
+        {% include "formset.html" with add_btn=True %}
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function(){
+           $(".add-btn:not([disabled])").click(function(){
+               var fields = '';
+               var count =  parseInt($("#id_form-TOTAL_FORMS").attr("value"));
+               fields = $('form>fieldset:last').clone(true);
+               fields.css({'maxWidth': '800px'});
+               fields.append('<div class="control-group" style="margin-top:-20px;"><div class="controls"><a href="#new-fields" class="regret-btn pull-left btn btn-mini btn-danger" style="margin-right: 10px;">{% trans "Remove" %}</a><div class="help-block">{% trans "Click the button if you added a item by accident" %}</div></div></div>');
+               fields.find('.regret-btn').click(function(){
+                   $(this).parent().parent().parent().remove();
+                   $("#id_form-TOTAL_FORMS").attr("value", parseInt($("#id_form-TOTAL_FORMS").attr("value") - 1));
+               });
+               fields.find('h3').html('{% trans "New item" %}');
+               fields.find('input').each(function() {
+                   var name = $(this).attr('name').replace('-' + (count-1) + '-','-' + count + '-');
+                   var id = 'id_' + name;
+                   $(this).attr({'name': name, 'id': id}).val('').removeAttr('checked')
+                   fields.find(".required input").removeAttr('readonly');
+               });
+               $("form #new-fields").append(fields);
+               $("#id_form-TOTAL_FORMS").attr("value", count + 1);
+           });
+
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n filters %}
+
+{% block content %}
+    <h1>{% trans "References" %}</h1>
+    <div class="btn-toolbar">
+        <div class="btn-group">
+            <a href="{% url add_reference %}" class="btn"><i class="icon icon-plus-sign"></i> {% trans "New reference" %}</a>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>{% trans "Title" %}:</th>
+            <th>{% trans "Market" %}:</th>
+            <th>{% trans "Application" %}:</th>
+            <th>{% trans "Filter solution" %}:</th>
+            <th>{% trans "Filter manufacturer" %}:</th>
+            <th>{% trans "Approved" %}:</th>
+            <th>{% trans "Published" %}:</th>
+        </tr>
+        {% for reference in references %}
+            <tr>
+                <td><a href="{% url view_reference reference.slug %}">{{ reference.title }}</a></td>
+                <td>{{ reference.market }}</td>
+                <td>{{ reference.type }}</td>
+                <td>{{ reference.filter_solution }}</td>
+                <td>{{ reference.manufacturer }}</td>
+                <td>{{ reference.is_approved|boolean }}</td>
+                <td>{{ reference.is_published|boolean }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,665 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-24 11:54+0200\n"
+"PO-Revision-Date: 2012-07-11 15:02+0100\n"
+"Last-Translator: Rolf Erik Lekang <me@rolflekang.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/admin/views.py:12 templates/base.html:36
+msgid "Edit market list"
+msgstr "Rediger marked liste"
+
+#: app/admin/views.py:21
+msgid "Markets was saved"
+msgstr "Marked er gemt"
+
+#: app/admin/views.py:26 templates/base.html:37
+msgid "Edit application list"
+msgstr "Rediger applikations liste"
+
+#: app/admin/views.py:35
+msgid "Types was saved"
+msgstr "Typer blev gemt"
+
+#: app/admin/views.py:40 app/admin/views.py:54
+msgid "Edit filter solutions list"
+msgstr "Rediger filter løsninger liste"
+
+#: app/admin/views.py:49 app/admin/views.py:63
+msgid "Filter solutions was saved"
+msgstr "Filter løsninger blev gemt"
+
+#: app/admin/templates/admin/edit_filteringitems.html:20
+msgid "Remove"
+msgstr "Fjern"
+
+#: app/admin/templates/admin/edit_filteringitems.html:20
+msgid "Click the button if you added a item by accident"
+msgstr "Klik på knappen, hvis du har tilføjet en vare ved et uheld"
+
+#: app/admin/templates/admin/edit_filteringitems.html:25
+msgid "New item"
+msgstr "Ny vare"
+
+#: app/comments/templates/comments/templatetags/form.html:6
+msgid "Add comment"
+msgstr "Tilføj kommentar"
+
+#: app/references/forms.py:83
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+#: app/references/forms.py:91 app/references/forms.py:92
+msgid "Problem <strong>or</strong> solution has to be filled"
+msgstr ""
+
+#: app/references/models.py:11 app/references/models.py:28
+msgid "name"
+msgstr "navn"
+
+#: app/references/models.py:12
+msgid "customer website"
+msgstr "kunde hjemmeside"
+
+#: app/references/models.py:13
+msgid "customer industry"
+msgstr "kunde industri"
+
+#: app/references/models.py:14 app/references/models.py:92
+msgid "country"
+msgstr "land"
+
+#: app/references/models.py:29
+msgid "code"
+msgstr "Kode"
+
+#: app/references/models.py:39
+msgid "English"
+msgstr "Engelsk"
+
+#: app/references/models.py:40
+msgid "Norwegian"
+msgstr "Norsk"
+
+#: app/references/models.py:41
+msgid "Danish"
+msgstr "Dansk"
+
+#: app/references/models.py:42
+msgid "Swedish"
+msgstr "Svensk"
+
+#: app/references/models.py:82
+msgid "title"
+msgstr "titel"
+
+#: app/references/models.py:89
+msgid "approved"
+msgstr "godkendt"
+
+#: app/references/models.py:90
+msgid "published"
+msgstr "offentliggjort"
+
+#: app/references/models.py:93
+msgid "market"
+msgstr "marked"
+
+#: app/references/models.py:94
+msgid "application"
+msgstr "applikation"
+
+#: app/references/models.py:95
+msgid "filter solution"
+msgstr "filterløsning"
+
+#: app/references/models.py:96
+msgid "filter manufacturer"
+msgstr "filter producent"
+
+#: app/references/models.py:98
+msgid "customer"
+msgstr "kunde"
+
+#: app/references/models.py:99
+msgid "customer contact"
+msgstr "kunde kontakt"
+
+#: app/references/models.py:100
+msgid "view customer in public"
+msgstr "se kunde i den offentlige"
+
+#: app/references/models.py:101
+msgid "borrowed products before purchase"
+msgstr "lånte produkter før køb"
+
+#: app/references/models.py:102
+msgid "salesman"
+msgstr "sælger"
+
+#: app/references/models.py:104
+msgid "install date"
+msgstr "installeret dato"
+
+#: app/references/models.py:106
+msgid "subtitle"
+msgstr "undertitel"
+
+#: app/references/models.py:107
+msgid "machine"
+msgstr "maskine"
+
+#: app/references/models.py:108
+msgid "machine type"
+msgstr "maskin type"
+
+#: app/references/models.py:110
+msgid "fluid"
+msgstr "væske"
+
+#: app/references/models.py:111
+msgid "fluid manufacturer"
+msgstr "væske producent"
+
+#: app/references/models.py:112
+msgid "fluid type"
+msgstr "væske type"
+
+#: app/references/models.py:113
+msgid "filtering level"
+msgstr "filtrering niveau"
+
+#: app/references/models.py:114
+msgid "filtering standard"
+msgstr "filtrering niveau"
+
+#: app/references/models.py:115
+msgid "flow"
+msgstr "flow"
+
+#: app/references/models.py:117
+msgid "pressure (bar)"
+msgstr "tryk"
+
+#: app/references/models.py:118
+msgid "system volume"
+msgstr "system volume"
+
+#: app/references/models.py:119
+msgid "temperature (C)"
+msgstr "temperatur"
+
+#: app/references/models.py:120
+msgid "viscosity"
+msgstr ""
+
+#: app/references/models.py:121
+msgid "viscosity type"
+msgstr ""
+
+#: app/references/models.py:122
+msgid "cost reductions"
+msgstr ""
+
+#: app/references/models.py:124
+msgid "filter"
+msgstr "filter"
+
+#: app/references/models.py:125
+msgid "filter element"
+msgstr "filter element"
+
+#: app/references/models.py:127
+msgid "analysis before"
+msgstr "analyse før"
+
+#: app/references/models.py:128
+msgid "analysis after"
+msgstr "analyse efter"
+
+#: app/references/models.py:130
+msgid "problem"
+msgstr "problem"
+
+#: app/references/models.py:131
+msgid "solution"
+msgstr "løsning"
+
+#: app/references/models.py:133
+msgid "illustration 1"
+msgstr "illustration 1."
+
+#: app/references/models.py:135
+msgid "illustration 2"
+msgstr "illustration 2."
+
+#: app/references/models.py:136
+msgid "illustration 3"
+msgstr "illustration 3."
+
+#: app/references/models.py:138
+msgid "file"
+msgstr "fil"
+
+#: app/references/util.py:6
+msgid "l/min"
+msgstr ""
+
+#: app/references/util.py:7
+msgid "m^3/h"
+msgstr ""
+
+#: app/references/util.py:27
+msgid "1"
+msgstr "1"
+
+#: app/references/util.py:32
+msgid "Denmark"
+msgstr "Danmark"
+
+#: app/references/util.py:33
+msgid "Sweden"
+msgstr "Sverige"
+
+#: app/references/util.py:34
+msgid "Norway"
+msgstr "Norge"
+
+#: app/references/views.py:42
+msgid "You do not have permission to view the reference you requested"
+msgstr "Du har ikke tilladelse til at se den reference, du ønskede"
+
+#: app/references/views.py:75
+msgid "The files was uploaded"
+msgstr "Filerne blev uploadet"
+
+#: app/references/templates/references/base.html:3
+#: app/references/templates/references/admin/list.html:5
+#: templates/base.html:22 templates/base.html.py:68
+msgid "References"
+msgstr "Referencer"
+
+#: app/references/templates/references/base.html:37
+#: app/references/templates/references/view.html:25
+#: app/references/templates/references/view.html:60
+msgid "Customer"
+msgstr "Kunde"
+
+#: app/references/templates/references/base.html:38
+#: app/references/templates/references/view.html:33
+#: app/references/templates/references/view.html:68
+msgid "Machine"
+msgstr "Maskine"
+
+#: app/references/templates/references/base.html:39
+msgid "Machine type"
+msgstr "Maskin type"
+
+#: app/references/templates/references/base.html:40
+#: app/references/templates/references/view.html:34
+#: app/references/templates/references/view.html:69
+#: app/references/templates/references/admin/list.html:16
+msgid "Filter solution"
+msgstr "Filter løsning"
+
+#: app/references/templates/references/base.html:41
+#: app/references/templates/references/view.html:35
+#: app/references/templates/references/view.html:70
+#: app/references/templates/references/admin/list.html:17
+msgid "Filter manufacturer"
+msgstr "Filter producent"
+
+#: app/references/templates/references/base.html:42
+#: app/references/templates/references/view.html:36
+#: app/references/templates/references/view.html:71
+msgid "Filter"
+msgstr "Filter"
+
+#: app/references/templates/references/base.html:43
+#: app/references/templates/references/view.html:37
+#: app/references/templates/references/view.html:72
+msgid "Filter element"
+msgstr "Filter element"
+
+#: app/references/templates/references/base.html:199
+#: app/references/templates/references/admin/list.html:8
+msgid "New reference"
+msgstr "Ny reference"
+
+#: app/references/templates/references/base.html:203
+msgid "View all references"
+msgstr "Vis alle referencer"
+
+#: app/references/templates/references/base.html:210
+msgid ""
+"Set the three different criterias above or/and set the filter manufacturer."
+msgstr ""
+"Sæt de tre forskellige kriterier ovenfor og / eller angive filter "
+"producenten."
+
+#: app/references/templates/references/base.html:212
+msgid "Set the three different criterias above."
+msgstr "Sæt de tre forskellige kriterier ovenfor."
+
+#: app/references/templates/references/base.html:250
+#: app/references/templates/references/view.html:117
+msgid "Solution"
+msgstr "Løsning"
+
+#: app/references/templates/references/base.html:256
+msgid "Read more"
+msgstr "Læs mere"
+
+#: app/references/templates/references/base.html:257
+msgid "Edit"
+msgstr "Rediger"
+
+#: app/references/templates/references/base.html:258
+#: app/references/templates/references/edit.html:81
+msgid "Close"
+msgstr "Luk"
+
+#: app/references/templates/references/edit.html:4
+#: app/references/templates/references/edit.html:7
+#: app/references/templates/references/upload_images.html:4
+#: app/references/templates/references/upload_images.html:7
+#: app/references/templates/references/view.html:88
+msgid "Edit reference"
+msgstr "Rediger reference"
+
+#: app/references/templates/references/edit.html:4
+#: app/references/templates/references/edit.html:7
+#: app/references/templates/references/upload_images.html:4
+#: app/references/templates/references/upload_images.html:7
+msgid "Add reference"
+msgstr "Tilføj reference"
+
+#: app/references/templates/references/edit.html:73
+msgid "Add customer"
+msgstr "Legg til kunde"
+
+#: app/references/templates/references/edit.html:80 templates/formset.html:66
+msgid "Save"
+msgstr "Gem"
+
+#: app/references/templates/references/view.html:17
+#: app/references/templates/references/view.html:113
+msgid "Saved"
+msgstr "Gemt"
+
+#: app/references/templates/references/view.html:24
+msgid "Salesman"
+msgstr "Sælger"
+
+#: app/references/templates/references/view.html:32
+msgid "Customer contact"
+msgstr "kundekontakt"
+
+#: app/references/templates/references/view.html:39
+msgid "Analysis before"
+msgstr "Analyse før"
+
+#: app/references/templates/references/view.html:43
+msgid "Analysis after"
+msgstr "Analyse efter"
+
+#: app/references/templates/references/view.html:46
+#: app/references/templates/references/view.html:73
+msgid "Technical data"
+msgstr "Tekniske data"
+
+#: app/references/templates/references/view.html:47
+#: app/references/templates/references/view.html:78
+msgid "Filtering level"
+msgstr "Filtrering niveau"
+
+#: app/references/templates/references/view.html:48
+#: app/references/templates/references/view.html:74
+msgid "Fluid"
+msgstr "Væske"
+
+#: app/references/templates/references/view.html:49
+#: app/references/templates/references/view.html:75
+msgid "Fluid manufacturer"
+msgstr "Væske producent"
+
+#: app/references/templates/references/view.html:50
+#: app/references/templates/references/view.html:76
+msgid "Fluid type"
+msgstr "Væske type"
+
+#: app/references/templates/references/view.html:51
+#: app/references/templates/references/view.html:77
+msgid "System volume"
+msgstr "System volume"
+
+#: app/references/templates/references/view.html:51
+#: app/references/templates/references/view.html:77
+msgid "liter"
+msgstr "Liter"
+
+#: app/references/templates/references/view.html:52
+#: app/references/templates/references/view.html:79
+msgid "Flow"
+msgstr "Flow"
+
+#: app/references/templates/references/view.html:53
+#: app/references/templates/references/view.html:80
+msgid "Temp"
+msgstr ""
+
+#: app/references/templates/references/view.html:54
+#: app/references/templates/references/view.html:81
+msgid "Viscosity"
+msgstr ""
+
+#: app/references/templates/references/view.html:55
+#: app/references/templates/references/view.html:82
+msgid "Pressure"
+msgstr "Tryk"
+
+#: app/references/templates/references/view.html:56
+#: app/references/templates/references/view.html:83
+msgid "Cost reductions"
+msgstr ""
+
+#: app/references/templates/references/view.html:87 templates/base.html:32
+msgid "Administration"
+msgstr "Administration"
+
+#: app/references/templates/references/view.html:89
+msgid "Upload images"
+msgstr "Upload billeder"
+
+#: app/references/templates/references/view.html:92
+#: app/references/templates/references/view.html:198
+msgid "Unpublish"
+msgstr "Fjern offentliggørelsen"
+
+#: app/references/templates/references/view.html:94
+#: app/references/templates/references/view.html:194
+msgid "Publish"
+msgstr "offentliggøre"
+
+#: app/references/templates/references/view.html:99
+#: app/references/templates/references/view.html:227
+msgid "Unapprove"
+msgstr "Ikke godkendt"
+
+#: app/references/templates/references/view.html:101
+#: app/references/templates/references/view.html:223
+msgid "Approve"
+msgstr "Godkend"
+
+#: app/references/templates/references/view.html:104
+msgid "Needs to be approved"
+msgstr "Skal godkendes"
+
+#: app/references/templates/references/view.html:137
+msgid "Internal comments"
+msgstr ""
+
+#: app/references/templates/references/view.html:193
+msgid "The reference was unpublished"
+msgstr "Referencen er ikke offentliggjort"
+
+#: app/references/templates/references/view.html:197
+msgid "The reference was published"
+msgstr "Referencen er offentliggjort"
+
+#: app/references/templates/references/view.html:222
+msgid "The reference was unapproved"
+msgstr "Referencen er ikke godkendt"
+
+#: app/references/templates/references/view.html:226
+msgid "The reference was approved"
+msgstr "Referencen er godkendt"
+
+#: app/references/templates/references/admin/list.html:13
+msgid "Title"
+msgstr "Titel"
+
+#: app/references/templates/references/admin/list.html:14
+msgid "Market"
+msgstr "Marked"
+
+#: app/references/templates/references/admin/list.html:15
+msgid "Application"
+msgstr "Applikation"
+
+#: app/references/templates/references/admin/list.html:18
+msgid "Approved"
+msgstr "Godkendt"
+
+#: app/references/templates/references/admin/list.html:19
+msgid "Published"
+msgstr "Udgivet"
+
+#: app/users/forms.py:20
+msgid "Chose the what rights this user should have"
+msgstr "Vælg hvilke rettigheder denne bruger skal have"
+
+#: app/users/forms.py:21
+msgid "Permissons"
+msgstr "Tilladelser"
+
+#: app/users/views.py:17
+msgid "Create new user"
+msgstr "Opret ny bruger"
+
+#: app/users/views.py:20
+msgid "Edit %(object)s"
+msgstr "Redigér %(objekt)s"
+
+#: app/users/templates/users/base.html:4 app/users/templates/users/base.html:7
+#: core/templatetags/nav.py:11 templates/base.html:25
+msgid "Users"
+msgstr "Brugere"
+
+#: app/users/templates/users/base.html:10
+msgid "New user"
+msgstr "Ny bruger"
+
+#: app/users/templates/users/base.html:15
+msgid "Username"
+msgstr "Brugernavn"
+
+#: app/users/templates/users/base.html:16
+msgid "Name"
+msgstr "Navn"
+
+#: app/users/templates/users/base.html:17
+msgid "Grupper"
+msgstr "Grupper"
+
+#: app/users/templates/users/base.html:18
+msgid "User group"
+msgstr "Bruger gruppe"
+
+#: app/users/templates/users/edit_user.html:4
+msgid "Edit user"
+msgstr "Rediger bruger"
+
+#: core/profiles/models.py:8
+msgid "user"
+msgstr "bruger"
+
+#: core/profiles/models.py:9
+msgid "language"
+msgstr "sprog"
+
+#: core/profiles/models.py:39
+msgid "profile"
+msgstr "profil"
+
+#: core/profiles/models.py:40
+msgid "profiles"
+msgstr "profiler"
+
+#: core/profiles/templates/core/profiles/edit.html:5
+msgid "Edit user settings"
+msgstr "Rediger brugerindstillinger"
+
+#: core/templatetags/filters.py:16
+msgid "Yes"
+msgstr "Ja"
+
+#: core/templatetags/filters.py:18
+msgid "No"
+msgstr "Nej"
+
+#: core/templatetags/nav.py:10
+msgid "Topics"
+msgstr "Emner"
+
+#: templates/base.html:7
+msgid "Lekang Gruppen"
+msgstr "Lekang Gruppen"
+
+#: templates/base.html:38
+msgid "Edit filter solution list"
+msgstr "Rediger filter løsning liste"
+
+#: templates/base.html:39
+msgid "Edit manufacturer list"
+msgstr "Rediger producent liste"
+
+#: templates/base.html:46
+msgid "Log out"
+msgstr "Log ud"
+
+#: templates/base.html:90 templates/registration/login.html:6
+msgid "Login"
+msgstr "Login"
+
+#: templates/base.html:92
+msgid "Logout"
+msgstr ""
+
+#: templates/formset.html:67
+msgid "Add another field"
+msgstr "Tilføj et andet felt"
+
+#: templates/registration/logged_out.html:6
+msgid "You logged out"
+msgstr "Du logget ud"
+
+#~ msgid "In <em>bar</em>"
+#~ msgstr "I <em>bar</em>"
+
+#~ msgid "l/h"
+#~ msgstr "l/t"
+
+#~ msgid "Problem"
+#~ msgstr "Problem"

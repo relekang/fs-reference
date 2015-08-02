@@ -1,0 +1,396 @@
+{% extends "base.html" %}
+{% load comments i18n thumbnail %}
+
+{% block title %}{{ reference.title }}{{ block.super }}{% endblock %}
+
+{% block content %}
+    {% if LANGUAGE_CODE == 'en' and reference.englishtranslation %}
+        <div class="row-fluid">
+            {% if reference.illustration1 %}
+                {% thumbnail reference.illustration1 "800x300" crop="center" as im %}
+                    <img src="{{ im.url }}" class="illustration1" >
+                {% endthumbnail %}
+            {% endif %}
+
+        </div>
+        <header class="visible-phone">
+            <h1>{{ reference.englishtranslation.title }}</h1>
+            {% if user.is_authenticated %}<em class="date">{% trans "Saved" %}: {{ reference.date_saved|date:"d.m.y" }}</em>{% endif %}
+            <h2 class="subtitle">{{ reference.englishtranslation.application }}</h2>
+        </header>
+        <div class="row-fluid">
+            <div class="span4 well">
+                <ul class="unstyled nav nav-list">
+                    {% if perms.references.add_reference %}
+                        {% if reference.salesman %}<li><strong>{% trans "Salesman" %}:</strong> {{ reference.salesman.first_name }} {{ reference.salesman.last_name }}</li>{% endif %}
+                        <li><strong>{% trans "Customer" %}:</strong>
+                            {% if reference.customer.website %}
+                                <span class="no-break"><a href="{{ reference.customer.website }}">{{ reference.customer }}</a></span>
+                            {% else %}
+                                <span class="no-break">{{ reference.customer }}</span>
+                            {% endif %}
+                        </li>
+                        {% if reference.customer_contact %}<li><strong>{% trans "Customer contact" %}:</strong> <span class="no-break">{{ reference.customer_contact }}</span></li>{% endif %}
+                        {% if reference.machine %}<li><strong>{% trans "Machine" %}:</strong> <span class="no-break">{{ reference.machine }}</span></li>{% endif %}
+                        <li class="nav-header">{% trans "Filter solution" %}</li>
+                        {% if reference.englishtranslation.manufacturer %}<li><strong>{% trans "Filter manufacturer" %}:</strong> <span class="no-break">{{ reference.englishtranslation.manufacturer }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.filter %}<li><strong>{% trans "Filter" %}:</strong> <span class="no-break">{{ reference.englishtranslation.filter }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.filter_element %}<li><strong>{% trans "Filter element" %}:</strong> <span class="no-break">{{ reference.englishtranslation.filter_element }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.analysis_before %}
+                            <li class="nav-header">{% trans "Analysis before" %}</li>
+                            <li>{{ reference.englishtranslation.analysis_before }}</li>
+                        {% endif %}
+                        {% if reference.englishtranslation.analysis_after %}
+                            <li class="nav-header">{% trans "Analysis after" %}</li>
+                            <li>{{ reference.englishtranslation.analysis_after }}</li>
+                        {% endif %}
+                        <li class="nav-header">{% trans "Technical data" %}</li>
+                        {% if reference.englishtranslation.filtering_level %}<li><strong>{% trans "Filtering level" %}:</strong> <span class="no-break">{{ reference.englishtranslation.filtering_level }}{% if reference.filtering_standard %} <em>{{ reference.get_filtering_standard_display }}</em>{% endif %}</span></li>{% endif %}
+                        {% if reference.englishtranslation.fluid %}<li><strong>{% trans "Fluid" %}:</strong> <span class="no-break">{{ reference.englishtranslation.fluid }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.fluid_manufacturer %}<li><strong>{% trans "Fluid manufacturer" %}:</strong> <span class="no-break">{{ reference.englishtranslation.fluid_manufacturer }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.fluid_type %}<li><strong>{% trans "Fluid type" %}:</strong> <span class="no-break">{{ reference.englishtranslation.fluid_type }}</span></li>{% endif %}
+                        {% if reference.system_volume %}<li><strong>{% trans "System volume" %}:</strong> <span class="no-break">{{ reference.system_volume }} <em>{% trans "liter" %}</em></span></li>{% endif %}
+                        {% if reference.flow %}<li><strong>{% trans "Flow" %}:</strong> <span class="no-break">{{ reference.flow }} <em>{{ reference.get_flow_unit_display }}</em></span></li>{% endif %}
+                        {% if reference.temp %}<li><strong>{% trans "Temp" %}:</strong> <span class="no-break">{{ reference.temp }} &deg;C</span></li>{% endif %}
+                        {% if reference.viscosity %}<li><strong>{% trans "Viscosity" %}:</strong> <span class="no-break">{{ reference.viscosity }} <em>{{ reference.get_viscosity_type_display }}</em></span></li>{% endif %}
+                        {% if reference.pressure %}<li><strong>{% trans "Pressure" %}:</strong> <span class="no-break">{{ reference.pressure }} <em>bar</em></span></li>{% endif %}
+                        {% if reference.englishtranslation.cost_reductions %}<li><strong>{% trans "Cost reductions" %}:</strong> <span class="no-break">{{ reference.englishtranslation.cost_reductions }}</span></li>{% endif %}
+
+                    {% else %}
+                        {% if reference.is_customer_public %}
+                            <li><strong>{% trans "Customer" %}:</strong>
+                                {% if reference.customer.website %}
+                                    <span class="no-break"><a href="{{ reference.customer.website }}">{{ reference.customer }}</a></span>
+                                {% else %}
+                                    <span class="no-break">{{ reference.customer }}</span>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+                        {% if reference.englishtranslation.machine %}<li><strong>{% trans "Machine" %}:</strong> <span class="no-break">{{ reference.englishtranslation.machine }}</span></li>{% endif %}
+                        <li class="nav-header">{% trans "Filter solution" %}</li>
+                        {% if reference.englishtranslation.manufacturer %}<li><strong>{% trans "Filter manufacturer" %}:</strong> <span class="no-break">{{ reference.englishtranslation.manufacturer }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.filter %}<li><strong>{% trans "Filter" %}:</strong> <span class="no-break">{{ reference.englishtranslation.filter }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.filter_element %}<li><strong>{% trans "Filter element" %}:</strong> <span class="no-break">{{ reference.filter_element }}</span></li>{% endif %}
+                        <li class="nav-header">{% trans "Technical data" %}</li>
+                        {% if reference.englishtranslation.fluid %}<li><strong>{% trans "Fluid" %}:</strong> <span class="no-break">{{ reference.englishtranslation.fluid }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.fluid_manufacturer %}<li><strong>{% trans "Fluid manufacturer" %}:</strong> <span class="no-break">{{ reference.englishtranslation.fluid_manufacturer }}</span></li>{% endif %}
+                        {% if reference.englishtranslation.fluid_type %}<li><strong>{% trans "Fluid type" %}:</strong> <span class="no-break">{{ reference.englishtranslation.fluid_type }}</span></li>{% endif %}
+                        {% if reference.system_volume %}<li><strong>{% trans "System volume" %}:</strong> <span class="no-break">{{ reference.system_volume }} <em>{% trans "liter" %}</em></span></li>{% endif %}
+                        {% if reference.englishtranslation.filtering_level %}<li><strong>{% trans "Filtering level" %}:</strong> <span class="no-break">{{ reference.englishtranslation.filtering_level }}{% if reference.filtering_standard %} <em>{{ reference.get_filtering_standard_display }}</em>{% endif %}</span></li>{% endif %}
+                        {% if reference.flow %}<li><strong>{% trans "Flow" %}:</strong> <span class="no-break">{{ reference.flow }} <em>{{ reference.get_flow_unit_display }}</em></span></li>{% endif %}
+                        {% if reference.temp %}<li><strong>{% trans "Temp" %}:</strong> <span class="no-break">{{ reference.temp }} &deg;C</span></li>{% endif %}
+                        {% if reference.viscosity %}<li><strong>{% trans "Viscosity" %}:</strong> <span class="no-break">{{ reference.viscosity }} <em>{{ reference.get_viscosity_type_display }}</em></span></li>{% endif %}
+                        {% if reference.pressure %}<li><strong>{% trans "Pressure" %}:</strong> <span class="no-break">{{ reference.pressure }} <em>bar</em></span></li>{% endif %}
+                        {% if reference.englishtranslation.cost_reductions %}<li><strong>{% trans "Cost reductions" %}:</strong> <span class="no-break">{{ reference.englishtranslation.cost_reductions }}</span></li>{% endif %}
+
+                    {% endif %}
+                    {% if perms.references.change_reference %}
+                        <li class="nav-header no-print">{% trans "Administration" %}</li>
+                        <li class="no-print"><a href="{% url edit_reference reference.pk %}">{% trans "Edit reference" %}</a></li>
+                        <li class="no-print"><a href="{% url translate_reference reference.pk %}">
+                            {% if reference.has_translation %}
+                                {% trans "Edit translation" %}
+                            {% else %}
+                                {% trans "Add translation" %}
+                            {% endif %}
+                        </a></li>
+                        <li class="no-print"><a href="{% url reference_upload_images reference.pk %}">{% trans "Upload images" %}</a></li>
+                        {% if perms.references.publish_reference %}
+                            {% if reference.is_published %}
+                                <li class="no-print"><a href="#" id="publish" data-value="0" data-id="{{ reference.pk }}">{% trans "Unpublish" %}</a></li>
+                            {% else %}
+                                <li class="no-print"><a href="#" id="publish" data-value="1" data-id="{{ reference.pk }}">{% trans "Publish" %}</a></li>
+                            {% endif %}
+                        {% endif %}
+                        {% if perms.references.approve_reference %}
+                            {% if reference.is_approved %}
+                                <li class="no-print"><a href="#" id="approve" data-value="0" data-id="{{ reference.pk }}">{% trans "Unapprove" %}</a></li>
+                            {% else %}
+                                <li class="no-print"><a href="#"id="approve" data-value="1" data-id="{{ reference.pk }}">{% trans "Approve" %}</a></li>
+                            {% endif %}
+                        {% elif not reference.is_approved %}
+                            <li>{% trans "Needs to be approved" %}</li>
+                        {% endif %}
+                    {% endif %}
+
+                </ul>
+            </div>
+            <div class="span8">
+                <header class="hidden-phone">
+                    <h1>{{ reference.englishtranslation.title }}</h1>
+                    {% if user.is_authenticated %}<em class="date">{% trans "Saved" %}: {{ reference.date_saved|date:"d.m.y" }}</em>{% endif %}
+                    <h2 class="subtitle">{{ reference.englishtranslation.application }}</h2>
+                </header>
+
+                {% if reference.problem %}<div id="problem">{{ reference.englishtranslation.problem|safe }}</div>{% endif %}
+                {% if reference.solution %}<div id="solution"><h3>{% trans "Solution" %}</h3>{{ reference.englishtranslation.solution|safe }}</div>{% endif %}
+
+                {% if reference.illustration2 %}
+                    {% if reference.illustration2.width > 500 %}
+                        {% thumbnail reference.illustration2 "500" crop="center" as im %}
+                            <img src="{{ im.url }}" >
+                        {% endthumbnail %}
+                    {% else %}
+                        <img src="{{ reference.illustration2.url }}">
+                    {% endif %}
+                {% endif %}
+                {% if reference.illustration3 %}
+                    {% if reference.illustration3.width > 500 %}
+                        {% thumbnail reference.illustration3 "500" crop="center" as im %}
+                            <img src="{{ im.url }}" >
+                        {% endthumbnail %}
+                    {% else %}
+                        <img src="{{ reference.illustration3.url }}">
+                    {% endif %}
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <h2{% if refefence.comment_count == 0 %} class="no-print"{% endif %}>{% trans "Internal comments" %}</h2>
+                    {% load_comments reference %}
+                    {% if perms.comments.add_referencecomment %}
+                        {% comment_form reference %}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+    <div class="row-fluid">
+        {% if reference.illustration1 %}
+            {% thumbnail reference.illustration1 "800x300" crop="center" as im %}
+                <img src="{{ im.url }}" class="illustration1" >
+            {% endthumbnail %}
+        {% endif %}
+
+    </div>
+    <header class="visible-phone">
+        <h1>{{ reference.title }}</h1>
+        {% if user.is_authenticated %}<em class="date">{% trans "Saved" %}: {{ reference.date_saved|date:"d.m.y" }}</em>{% endif %}
+        <h2 class="subtitle">{{ reference.application }}</h2>
+    </header>
+    <div class="row-fluid">
+    <div class="span4 well">
+        <ul class="unstyled nav nav-list">
+            {% if perms.references.add_reference %}
+                {% if reference.salesman %}<li><strong>{% trans "Salesman" %}:</strong> {{ reference.salesman.first_name }} {{ reference.salesman.last_name }}</li>{% endif %}
+                <li><strong>{% trans "Customer" %}:</strong>
+                    {% if reference.customer.website %}
+                        <span class="no-break"><a href="{{ reference.customer.website }}">{{ reference.customer }}</a></span>
+                    {% else %}
+                        <span class="no-break">{{ reference.customer }}</span>
+                    {% endif %}
+                </li>
+                {% if reference.customer_contact %}<li><strong>{% trans "Customer contact" %}:</strong> <span class="no-break">{{ reference.customer_contact }}</span></li>{% endif %}
+                {% if reference.machine %}<li><strong>{% trans "Machine" %}:</strong> <span class="no-break">{{ reference.machine }}</span></li>{% endif %}
+                <li class="nav-header">{% trans "Filter solution" %}</li>
+                {% if reference.manufacturer %}<li><strong>{% trans "Filter manufacturer" %}:</strong> <span class="no-break">{{ reference.manufacturer }}</span></li>{% endif %}
+                {% if reference.filter %}<li><strong>{% trans "Filter" %}:</strong> <span class="no-break">{{ reference.filter }}</span></li>{% endif %}
+                {% if reference.filter_element %}<li><strong>{% trans "Filter element" %}:</strong> <span class="no-break">{{ reference.filter_element }}</span></li>{% endif %}
+                    {% if reference.analysis_before %}
+                        <li class="nav-header">{% trans "Analysis before" %}</li>
+                        <li>{{ reference.analysis_before }}</li>
+                    {% endif %}
+                    {% if reference.analysis_after %}
+                        <li class="nav-header">{% trans "Analysis after" %}</li>
+                        <li>{{ reference.analysis_after }}</li>
+                    {% endif %}
+                <li class="nav-header">{% trans "Technical data" %}</li>
+                {% if reference.filtering_level %}<li><strong>{% trans "Filtering level" %}:</strong> <span class="no-break">{{ reference.filtering_level }}{% if reference.filtering_standard %} <em>{{ reference.get_filtering_standard_display }}</em>{% endif %}</span></li>{% endif %}
+                {% if reference.fluid %}<li><strong>{% trans "Fluid" %}:</strong> <span class="no-break">{{ reference.fluid }}</span></li>{% endif %}
+                {% if reference.fluid_manufacturer %}<li><strong>{% trans "Fluid manufacturer" %}:</strong> <span class="no-break">{{ reference.fluid_manufacturer }}</span></li>{% endif %}
+                {% if reference.fluid_type %}<li><strong>{% trans "Fluid type" %}:</strong> <span class="no-break">{{ reference.fluid_type }}</span></li>{% endif %}
+                {% if reference.system_volume %}<li><strong>{% trans "System volume" %}:</strong> <span class="no-break">{{ reference.system_volume }} <em>{% trans "liter" %}</em></span></li>{% endif %}
+                {% if reference.flow %}<li><strong>{% trans "Flow" %}:</strong> <span class="no-break">{{ reference.flow }} <em>{{ reference.get_flow_unit_display }}</em></span></li>{% endif %}
+                {% if reference.temp %}<li><strong>{% trans "Temp" %}:</strong> <span class="no-break">{{ reference.temp }} &deg;C</span></li>{% endif %}
+                {% if reference.viscosity %}<li><strong>{% trans "Viscosity" %}:</strong> <span class="no-break">{{ reference.viscosity }} <em>{{ reference.get_viscosity_type_display }}</em></span></li>{% endif %}
+                {% if reference.pressure %}<li><strong>{% trans "Pressure" %}:</strong> <span class="no-break">{{ reference.pressure }} <em>bar</em></span></li>{% endif %}
+                {% if reference.cost_reductions %}<li><strong>{% trans "Cost reductions" %}:</strong> <span class="no-break">{{ reference.cost_reductions }}</span></li>{% endif %}
+
+            {% else %}
+                {% if reference.is_customer_public %}
+                    <li><strong>{% trans "Customer" %}:</strong>
+                        {% if reference.customer.website %}
+                            <span class="no-break"><a href="{{ reference.customer.website }}">{{ reference.customer }}</a></span>
+                        {% else %}
+                            <span class="no-break">{{ reference.customer }}</span>
+                        {% endif %}
+                    </li>
+                {% endif %}
+                {% if reference.machine %}<li><strong>{% trans "Machine" %}:</strong> <span class="no-break">{{ reference.machine }}</span></li>{% endif %}
+                <li class="nav-header">{% trans "Filter solution" %}</li>
+                {% if reference.manufacturer %}<li><strong>{% trans "Filter manufacturer" %}:</strong> <span class="no-break">{{ reference.manufacturer }}</span></li>{% endif %}
+                {% if reference.filter %}<li><strong>{% trans "Filter" %}:</strong> <span class="no-break">{{ reference.filter }}</span></li>{% endif %}
+                {% if reference.filter_element %}<li><strong>{% trans "Filter element" %}:</strong> <span class="no-break">{{ reference.filter_element }}</span></li>{% endif %}
+                <li class="nav-header">{% trans "Technical data" %}</li>
+                {% if reference.fluid %}<li><strong>{% trans "Fluid" %}:</strong> <span class="no-break">{{ reference.fluid }}</span></li>{% endif %}
+                {% if reference.fluid_manufacturer %}<li><strong>{% trans "Fluid manufacturer" %}:</strong> <span class="no-break">{{ reference.fluid_manufacturer }}</span></li>{% endif %}
+                {% if reference.fluid_type %}<li><strong>{% trans "Fluid type" %}:</strong> <span class="no-break">{{ reference.fluid_type }}</span></li>{% endif %}
+                {% if reference.system_volume %}<li><strong>{% trans "System volume" %}:</strong> <span class="no-break">{{ reference.system_volume }} <em>{% trans "liter" %}</em></span></li>{% endif %}
+                {% if reference.filtering_level %}<li><strong>{% trans "Filtering level" %}:</strong> <span class="no-break">{{ reference.filtering_level }}{% if reference.filtering_standard %} <em>{{ reference.get_filtering_standard_display }}</em>{% endif %}</span></li>{% endif %}
+                {% if reference.flow %}<li><strong>{% trans "Flow" %}:</strong> <span class="no-break">{{ reference.flow }} <em>{{ reference.get_flow_unit_display }}</em></span></li>{% endif %}
+                {% if reference.temp %}<li><strong>{% trans "Temp" %}:</strong> <span class="no-break">{{ reference.temp }} &deg;C</span></li>{% endif %}
+                {% if reference.viscosity %}<li><strong>{% trans "Viscosity" %}:</strong> <span class="no-break">{{ reference.viscosity }} <em>{{ reference.get_viscosity_type_display }}</em></span></li>{% endif %}
+                {% if reference.pressure %}<li><strong>{% trans "Pressure" %}:</strong> <span class="no-break">{{ reference.pressure }} <em>bar</em></span></li>{% endif %}
+                {% if reference.cost_reductions %}<li><strong>{% trans "Cost reductions" %}:</strong> <span class="no-break">{{ reference.cost_reductions }}</span></li>{% endif %}
+
+            {% endif %}
+            {% if perms.references.change_reference %}
+                <li class="nav-header no-print">{% trans "Administration" %}</li>
+                <li class="no-print"><a href="{% url edit_reference reference.pk %}">{% trans "Edit reference" %}</a></li>
+                <li class="no-print"><a href="{% url translate_reference reference.pk %}">
+                    {% if reference.has_translation %}
+                        {% trans "Edit translation" %}
+                    {% else %}
+                        {% trans "Add translation" %}
+                    {% endif %}
+                </a></li>
+                <li class="no-print"><a href="{% url reference_upload_images reference.pk %}">{% trans "Upload images" %}</a></li>
+                {% if perms.references.publish_reference %}
+                    {% if reference.is_published %}
+                        <li class="no-print"><a href="#" id="publish" data-value="0" data-id="{{ reference.pk }}">{% trans "Unpublish" %}</a></li>
+                    {% else %}
+                        <li class="no-print"><a href="#" id="publish" data-value="1" data-id="{{ reference.pk }}">{% trans "Publish" %}</a></li>
+                    {% endif %}
+                {% endif %}
+                {% if perms.references.approve_reference %}
+                    {% if reference.is_approved %}
+                        <li class="no-print"><a href="#" id="approve" data-value="0" data-id="{{ reference.pk }}">{% trans "Unapprove" %}</a></li>
+                    {% else %}
+                        <li class="no-print"><a href="#"id="approve" data-value="1" data-id="{{ reference.pk }}">{% trans "Approve" %}</a></li>
+                    {% endif %}
+                {% elif not reference.is_approved %}
+                    <li>{% trans "Needs to be approved" %}</li>
+                {% endif %}
+            {% endif %}
+
+        </ul>
+    </div>
+    <div class="span8">
+        <header class="hidden-phone">
+            <h1>{{ reference.title }}</h1>
+            {% if user.is_authenticated %}<em class="date">{% trans "Saved" %}: {{ reference.date_saved|date:"d.m.y" }}</em>{% endif %}
+            <h2 class="subtitle">{{ reference.application }}</h2>
+        </header>
+
+        {% if reference.problem %}<div id="problem">{{ reference.problem|safe }}</div>{% endif %}
+        {% if reference.solution %}<div id="solution"><h3>{% trans "Solution" %}</h3>{{ reference.solution|safe }}</div>{% endif %}
+
+        {% if reference.illustration2 %}
+        {% if reference.illustration2.width > 500 %}
+            {% thumbnail reference.illustration2 "500" crop="center" as im %}
+                <img src="{{ im.url }}" >
+            {% endthumbnail %}
+        {% else %}
+                <img src="{{ reference.illustration2.url }}">
+        {% endif %}
+        {% endif %}
+        {% if reference.illustration3 %}
+            {% if reference.illustration3.width > 500 %}
+                {% thumbnail reference.illustration3 "500" crop="center" as im %}
+                    <img src="{{ im.url }}" >
+                {% endthumbnail %}
+            {% else %}
+                <img src="{{ reference.illustration3.url }}">
+            {% endif %}
+        {% endif %}
+        {% if user.is_authenticated %}
+            <h2{% if refefence.comment_count == 0 %} class="no-print"{% endif %}>{% trans "Internal comments" %}</h2>
+            {% load_comments reference %}
+            {% if perms.comments.add_referencecomment %}
+                {% comment_form reference %}
+            {% endif %}
+        {% endif %}
+    </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function(){
+    {% if perms.comments.add_referencecomment %}
+            $('form[name=comment]').submit(function(e){
+                e.preventDefault();
+                var form = $(this);
+                var btn = $(this).children().children('button');
+                btn.attr('disabled', true);
+                $.ajax({
+                    url: "{% url api.add_comment %}",
+                    type: "POST",
+                    data: form.serialize(),
+                    success: function(msg) {
+                        if(msg['comment']){
+                            form.children("textarea").attr("value", "");
+                            $(".comments").append("<li class=\"well\"><em>" + msg['comment']['timestamp'] + "</em><strong>" + msg['comment']['user'] + "</strong>" + msg['comment']['content'] + "</li>")
+                        }
+                    },
+                    error: function(msg) {
+                        addError('There was an error while saving your comment');
+                    },
+                    complete: function() {
+                        btn.removeAttr('disabled');
+                    }
+                });
+                return false;
+            });
+            {% endif %}
+            {% if perms.references.publish_reference %}
+            $("#publish").click(function(){
+                $.ajax({
+                    url: '{% url api.publish_reference %}',
+                    type: "POST",
+                    data: "is_published=" + $("#publish").attr("data-value") + "&id=" + $("#publish").attr("data-id"),
+                    success: function(msg) {
+
+                        setPublishBtn(msg['is_published']);
+                    },
+                    error: function(msg) {
+                        addError('There was an error while publishing the reference');
+                    }
+                });
+            });
+            function setPublishBtn(val){
+                function setThePublishBtn(value){
+                    if(value == false){
+                        addSuccess("{% trans "The reference was unpublished" %}");
+                        $("#publish").html("{% trans "Publish" %}");
+                        $("#publish").attr("data-value", 1);
+                    } else if(value == true){
+                        addSuccess("{% trans "The reference was published" %}");
+                        $("#publish").html("{% trans "Unpublish" %}");
+                        $("#publish").attr("data-value", 0);
+                    }
+                }
+                setThePublishBtn(val);
+            }
+            {% endif %}
+            {% if perms.references.approve_reference %}
+            $("#approve").click(function(){
+                $.ajax({
+                    url: "{% url api.approve_reference %}",
+                    type: "POST",
+                    data: "is_approved=" + $("#approve").attr("data-value") + "&id=" + $("#approve").attr("data-id"),
+                    success: function(msg) {
+                        setApproveBtn(msg['is_approved']);
+                    },
+                    error: function(msg) {
+                        addError('There was an error while publishing the reference');
+                    }
+                });
+            });
+            function setApproveBtn(val){
+                function setTheApproveBtn(value){
+                    if(value == false){
+                        addSuccess("{% trans "The reference was unapproved" %}");
+                        $("#approve").html("{% trans "Approve" %}");
+                        $("#approve").attr("data-value", 1);
+                    } else if(value == true){
+                        addSuccess("{% trans "The reference was approved" %}");
+                        $("#approve").html("{% trans "Unapprove" %}");
+                        $("#approve").attr("data-value", 0);
+                    }
+                }
+                setTheApproveBtn(val);
+            }
+            {% endif %}
+        });
+    </script>
+{% endblock %}

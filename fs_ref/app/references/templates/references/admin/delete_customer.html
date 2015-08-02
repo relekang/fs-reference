@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n filters %}
+
+{% block content %}
+    <div class="row-fluid">
+      <h1>{% trans "Delete customer" %}</h1>
+    </div>
+    <div class="row-fluid">
+      <div class="span6">
+        <h2>{{ customer.name }}</h2>
+        <p class="lead">{% trans "Do you really want to delete this customer?" %}</p>
+        <form method="post">
+            <button class="btn btn-large btn-danger" value='yes' name='confirmed'>{% trans "Yes" %}
+
+        </form>
+      </div>
+      <div class="span6">
+        <h3>{% trans "References that belongs to this customer" %}</h3>
+        <ul>
+          {% for ref in customer.references.all %}
+            <li>{{ ref.title }}</li>
+          {% empty %}
+          <strong>
+            {% trans "There are no references connected to this customer." %}
+          </strong>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    
+{% endblock %}

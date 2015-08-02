@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load filters i18n %}
+
+{% block title %}{% if form.instance.pk %}{% trans "Edit reference" %}{% else %}{% trans "Add reference" %}{% endif %}{{ block.super }}{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}{% trans "Edit reference" %}{% else %}{% trans "Add reference" %}{% endif %}</h1>
+    {% if forms.non_field_errors %}
+        <div class="alert alert-error">
+            <button class="close" data-dismiss="alert">×</button>
+            <strong>Error!</strong> {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    <form class="form form-horizontal" method="post" enctype="multipart/form-data" name="edit_reference">
+        {% csrf_token %}
+        <fieldset>
+            {% for field in form %}
+                {% if forloop.counter == 10 or forloop.counter == 12 or forloop.counter == 13 or forloop.counter == 17 or forloop.counter == 21 or forloop.counter == 27 or forloop.counter == 30 %}<hr class="fader eighty" />{% endif %}
+                {% if field.is_hidden %}
+                    {{ field }}
+                {% else %}
+                    <div class="control-group{% if field.errors %} error{% endif %}{% if field.field.required %} required{% endif %}{% if forloop.counter0|mod:2 > 0 and forloop.counter > 1 and forloop.counter < 12 or forloop.counter|mod:2 > 0 and forloop.counter > 12 and forloop.counter < 31 or forloop.counter == 30  %} pull-left{% endif %}">
+                        {% if field.type == 'checkbox' %}
+                            <div class="controls">
+                                <label class="checkbox">
+                                    {{ field }} <span>{{ field.label }}</span>
+                                </label>
+
+                                {% for error in field.errors %}
+                                    <span class="help-block">{{ error }}</span>
+                                {% endfor %}
+
+                                {% if field.help_text|safe %}
+                                    <p class="help-block">
+                                        {{ field.help_text|safe }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <label class="control-label">
+{#                                {{ forloop.counter }}#}
+                                {{ field.label }}</label>
+
+                            <div class="controls">
+                                {{ field }}
+
+                                {% for error in field.errors %}
+                                    <span class="help-block">{{ error|safe }}</span>
+                                {% endfor %}
+
+                                {% if field.help_text|safe %}
+                                    <p class="help-block">
+                                        {{ field.help_text|safe }}
+                                    </p>
+                                {% endif %}
+
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </fieldset>
+        <div class="controls">
+            <button type="submit" class="btn primary">Submit</button>
+        </div>
+    </form>
+{% endblock %}
+
+{% block modal %}
+    <div id="customer-form-modal" class="modal hide fade" style="max-width: 600px;">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h3>{% trans "Add customer" %}</h3>
+        </div>
+        <div class="modal-body" style="max-height: 600px;">
+            {% include "form.html" with form=customer_form no_button=True ajax_dest='/api/customers/add/' %}
+        </div>
+        <div class="modal-footer">
+            <div class="btn-group pull-right">
+                <a href="#" class="btn btn-primary btn-save">{% trans "Save" %}</a>
+                <a href="#" class="btn btn-close" data-dismiss="modal">{% trans "Close" %}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $('.modal form').submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+                var btn = $('.modal-footer .btn-save');
+                btn.attr('disabled', true);
+                $.ajax({
+                    url: '/{{ LANGUAGE_CODE }}' + form.attr('data-ajax'),
+                    type:"POST",
+                    data:$(this).serialize(),
+                    success:function (msg) {
+                        if (msg['error']) {
+                            $(".help-inline.error").remove();
+                            $('.control-group.error').removeClass('error');
+                            for (i = 0; i < msg['error'].length; i++) {
+                                var error = msg['error'][i];
+                                $(".modal #id_" + error['field']).parent().parent().addClass('error');
+                                $(".modal #id_" + error['field']).parent().parent().append('<span class="help-inline error">' + error['error'] + '</span>');
+                            }
+                        } else {
+                            form.parent().parent(".modal").modal('hide');
+                            $('form[name] #id_customer option').removeAttr('selected');
+                            $('form[name] #id_customer').append('<option selected value="'+ msg['customer']['id'] + '">' + msg['customer']['name'] + '</option');
+                            $('form[name] #id_customer').trigger("liszt:updated");
+
+                            form.find("input").val("");
+                            form.find("select").val("");
+                        }
+                    },
+                    error:function (msg) {
+                        addModalError('There was an error while saving');
+                    },
+                    complete:function () {
+                        btn.removeAttr('disabled');
+                    }
+                });
+                return false;
+
+            });
+            $('.modal-footer .btn-save').click(function(){
+                $('.modal form').submit();
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load i18n %}
+<hr class="invisble"/>
+<ul class="unstyled comments">
+    {% for comment in comments %}
+        <li class="well">
+            <em class="date">{{ comment.timestamp|date:'d.m.y H.i' }}</em>
+            <strong>{{ comment.user.first_name }} {{ comment.user.last_name }}{% if comment.user == user %} | <a href="{% url edit_comment comment.pk %}">Edit</a> | <a href="{% url delete_comment comment.pk %}">Delete</a>{% endif %}</strong>
+            {{ comment.content }}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load filters i18n %}
+
+{% block title %}{% trans "Translate reference" %}{{ block.super }}{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Translate reference to English" %}</h1>
+    <div class="well">
+        {% include "form.html" %}
+    </div>
+{% endblock %}

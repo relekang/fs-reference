@@ -1,0 +1,7 @@
+{% load i18n %}
+<form name="comment">
+    {{ form.user.as_hidden }}
+    {{ form.reference.as_hidden }}
+    {{ form.content }}<br/>
+    <button class="btn btn-primary">{% trans "Add comment" %}</button>
+</form>

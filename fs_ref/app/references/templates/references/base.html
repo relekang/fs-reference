@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% load i18n thumbnail %}
+{% block title %}{% trans "References" %}{{ block.super }}{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function () {
+
+            filterThumbs($("#id_market").val(), $("#id_type").val(), $("#id_filter_solution").val());
+
+            $("select").on('change', function (event) {
+                updateSelectors($(this));
+            });
+            function updateSelectors(element){
+                var m = $("#id_market");
+                var t = $("#id_type");
+                var f = $("#id_filter_solution");
+                var man = $("#id_manufacturer");
+                var filter_key = "";
+
+                updateHistoryStack(m.val(), t.val(), f.val())
+
+                if(element.attr('id') == m.attr('id')){
+                    loadSelectValues("id_type", m.val(), '');
+                    loadSelectValues("id_filter_solution", m.val(), '');
+                    $(".thumbnails li:visible").fadeOut('fast', function(){
+                        $("#help-text").fadeIn();
+                    });
+
+                } else if(element.attr('id') == t.attr('id')){
+                    loadSelectValues("id_filter_solution", m.val(), t.val());
+                    $(".thumbnails li:visible").fadeOut('fast', function(){
+                        $("#help-text").fadeIn();
+                    });
+
+                } else if (m.val() != '' && t.val() != '' && f.val() != '') {
+                    filterThumbs(m.val(), t.val(), f.val());
+                }
+                {% if user.is_authenticated %}
+                else if (m.val() == '' && t.val() == '' && f.val() == '') {
+                    if(man.val() == ''){
+                        $(".thumbnails li:visible").fadeOut(function(){
+                            $("#help-text").fadeIn();
+                        });
+                    } else {
+                        filterThumbs('','','');
+                    }
+
+                }
+                {% endif %}
+            }
+            function updateHistoryStack(m, t, f){
+{#                if (m != ''){#}
+{#                    var url = '?m=' + m;#}
+{#                if (t != '') url += '&t=' + t;#}
+{#                if (f != '') url += '&fs=' + f;#}
+{##}
+{#                history.replaceState(m, 'References', url);#}
+{#                }#}
+
+            }
+
+            function filterThumbs(m, t, f) {
+                $("#alert").html("");
+                var filter_key = "";
+                if (m != '') filter_key += "[data-market=" + m + "]";
+                if (t != '') filter_key += "[data-type=" + t + "]";
+                if (f != '') filter_key += "[data-filter-solution=" + f + "]";
+
+                if ($("#help-text").is(":visible")) {
+                    $("#help-text:visible").fadeOut('fast', function () {
+                        fadeThumbs(filter_key);
+                    });
+                } else {
+                    fadeThumbs(filter_key);
+                }
+
+                function fadeThumbs(filter_key) {
+
+                {% if user.is_authenticated %}
+                    if ($("#id_manufacturer").val() != '') {
+                        filter_key = filter_key + "[data-manufacturer=" + $("#id_manufacturer").val() + "]"
+                    }
+                {% endif %}
+                    if (filter_key != ''){
+                        if($(".thumbnails li:not(" + filter_key + ")").size() > 0) {
+                            $(".thumbnails li:not(" + filter_key + ")").fadeOut("fast", function () {
+                                $(".thumbnails li" + filter_key).delay("fast").fadeIn(function () {
+                                    if ($(".thumbnails li:visible").size() == 0) {
+                                        $("#help-text").fadeIn();
+                                    }
+                                });
+                            });
+                        } else {
+                            $("#help-text").fadeOut(function () {
+                                $(".thumbnails li" + filter_key).delay("fast").fadeIn();
+                            });
+                        }
+                    } else {
+                        $("#help-text:hidden").fadeIn();
+                    }
+                }
+
+            }
+
+            function loadSelectValues(id, market, type) {
+                var out = '<option selected value="' + $("#" + id).find('option:first').val() + '">' + $("#" + id).find('option:first').html() + '</option>';
+                var data = "id=" + id + "&market=" + market;
+                if (type != '') data += "&type=" + type;
+                $.ajax({
+                    url:"/{{ LANGUAGE_CODE }}/api/references/filter-values/" + id + "/",
+                    type:"POST",
+                    data:data,
+                    success:function (msg) {
+                        if (msg['values']) {
+                            for (var i = 0; i < msg['values'].length; i++) {
+                                var value = msg['values'][i];
+                                out += '<option value="' + value['id'] + '">' + value['{{ LANGUAGE_CODE }}'] + '</option>';
+
+                            }
+                        }
+                        $("#" + id).html(out).trigger("liszt:updated");
+                    }
+                });
+
+            }
+        });
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+    <div id="alert"></div>
+
+    <form action="#" class="form form-inline" id="filter-form">
+        {% for field in form %}
+            {% if forloop.counter < 4 or user.is_authenticated %}
+                <label>{{ field.label }}: {{ field }}</label>{% endif %}
+        {% endfor %}
+        {#                        <label><a href="#" class="btn btn-primary">Søk</a></label>#}
+    </form>
+    {% if user.is_authenticated %}
+        <div class="btn-toolbar">
+            <div class="btn-group">
+                {% if perms.references.add_reference %}
+                    <a href="{% url add_reference %}" class="btn"><i
+                            class="icon icon-plus-sign"></i> {% trans "New reference" %}</a>
+                {% endif %}
+                {% if perms.references.approve_reference %}
+                    <a href="{% url all_references %}" class="btn"><i
+                            class="icon icon-list"></i> {% trans "View all references" %}</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+    <div id="help-text" class="lead" style="text-align: center;">
+        {% if user.is_authenticated %}
+            {% blocktrans %}Set the three different criterias above or/and set the filter manufacturer.{% endblocktrans %}
+        {% else %}
+            {% blocktrans %}Set the three different criterias above.{% endblocktrans %}
+    {% endif %}
+    </div>
+    <ul class="thumbnails">
+        {% for reference in references %}
+            <li style="display:none;" data-id="{{ reference.id }}" data-market="{{ reference.market.pk }}"
+                data-type="{{ reference.type.pk }}" data-filter-solution="{{ reference.filter_solution.pk }}"
+                data-manufacturer="{{ reference.manufacturer.pk }}">
+                <div class="thumbnail">
+                {% if not modal %}<a href="{% url view_reference reference.slug %}">{% endif %}
+                    {% if reference.illustration1 %}
+                        {% thumbnail reference.illustration1 "200x200" crop="center" as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                        {% endthumbnail %}
+                    {% elif reference.illustration2 %}
+                        {% thumbnail reference.illustration2 "200x200" crop="center" as im %}
+                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                        {% endthumbnail %}
+                    {% endif %}
+                    <h5>{{ reference.title }}</h5>
+                {% if not modal %}</a>{% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
