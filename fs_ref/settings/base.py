@@ -41,6 +41,7 @@ USE_I18N = True
 MEDIA_ROOT = os.path.join(BASE_PATH, 'files/media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_PATH, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_PATH, 'files/static'),
@@ -70,11 +71,11 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-#STATICFILES_FINDERS = (
-#'django.contrib.staticfiles.finders.FileSystemFinder',
-#   'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-#)
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
 
 ROOT_URLCONF = 'fs_ref.urls'
 
@@ -91,7 +92,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    #    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'django.contrib.messages',
 
     'sorl.thumbnail',

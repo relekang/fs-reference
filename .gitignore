@@ -58,4 +58,6 @@ docs/_build/
 target/
 
 fs_ref/settings/local.py
+fs_ref/static/
 project.db
+
