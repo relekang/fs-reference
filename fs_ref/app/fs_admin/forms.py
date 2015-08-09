@@ -23,18 +23,22 @@ class FilteringItemForm(forms.ModelForm):
 class MarketForm(FilteringItemForm):
     class Meta:
         model = Market
+        fields = ('en', 'no', 'dk', 'sv')
 
 
 class TypeForm(FilteringItemForm):
     class Meta:
         model = Type
+        fields = ('en', 'no', 'dk', 'sv')
 
 
 class FilterSolutionForm(FilteringItemForm):
     class Meta:
         model = FilterSolution
+        fields = ('en', 'no', 'dk', 'sv')
 
 
 class ManufacturerForm(forms.ModelForm):
     class Meta:
         model = Manufacturer
+        fields = ('name', 'code')

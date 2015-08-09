@@ -6,6 +6,11 @@ from fs_ref.app.comments.models import ReferenceComment
 class CommentForm(forms.ModelForm):
     class Meta:
         model = ReferenceComment
+        fields = (
+            'reference',
+            'user',
+            'content',
+        )
 
     def __init__(self, *args, **kwargs):
         super(CommentForm, self).__init__(*args, **kwargs)

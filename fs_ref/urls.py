@@ -7,11 +7,11 @@ from fs_ref.app.references.feeds import RssFeed
 
 admin.autodiscover()
 
-#Robots
+# Robots
 urlpatterns = patterns('',
     url(r'^robots\.txt$', lambda r: HttpResponse(
-        "User-agent: *\nDisallow: /api/\nDisallow: /backup/\nDisallow: /accounts/\nDisallow: /admin/",
-        mimetype="text/plain"
+        'User-agent: *\nDisallow: /api/\nDisallow: /backup/\nDisallow: /accounts/\nDisallow: /admin/',
+        content_type='text/plain'
     )),
 )
 
@@ -30,12 +30,6 @@ urlpatterns += i18n_patterns('',
     url(r'^$', 'fs_ref.app.references.views.list_references', name='references'),
     url(r'^rss/$', RssFeed()),
 )
-
-urlpatterns += patterns('fs_ref',
-    (r'^backup/$','core.views.backup'),
-    (r'^fkjfbfeionafkdnfabkjf/$','core.views.backup_auto'),
-)
-
 
 if settings.DEBUG:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns

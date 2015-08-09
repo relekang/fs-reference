@@ -173,3 +173,4 @@ class ReferenceFilesForm(forms.ModelForm):
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
+        fields = ('name', 'website', 'industry')

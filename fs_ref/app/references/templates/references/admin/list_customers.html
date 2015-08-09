@@ -13,10 +13,10 @@
         {% for customer in customers %}
             <tr>
                 <td>
-                    <a href="{% url delete_customer customer.id %}" class="pull-right">
+                    <a href="{% url 'delete_customer' customer.id %}" class="pull-right">
                       <i class="icon icon-trash"></i>
                     </a>
-                    <a href="{% url edit_customer customer.id %}">{{ customer.name }}</a>
+                    <a href="{% url 'edit_customer' customer.id %}">{{ customer.name }}</a>
                 </td>
                 <td>{{ customer.website }}</td>
                 <td>{{ customer.industry }}</td>

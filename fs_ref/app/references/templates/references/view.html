@@ -86,15 +86,15 @@
                     {% endif %}
                     {% if perms.references.change_reference %}
                         <li class="nav-header no-print">{% trans "Administration" %}</li>
-                        <li class="no-print"><a href="{% url edit_reference reference.pk %}">{% trans "Edit reference" %}</a></li>
-                        <li class="no-print"><a href="{% url translate_reference reference.pk %}">
+                        <li class="no-print"><a href="{% url 'edit_reference' reference.pk %}">{% trans "Edit reference" %}</a></li>
+                        <li class="no-print"><a href="{% url 'translate_reference' reference.pk %}">
                             {% if reference.has_translation %}
                                 {% trans "Edit translation" %}
                             {% else %}
                                 {% trans "Add translation" %}
                             {% endif %}
                         </a></li>
-                        <li class="no-print"><a href="{% url reference_upload_images reference.pk %}">{% trans "Upload images" %}</a></li>
+                        <li class="no-print"><a href="{% url 'reference_upload_images' reference.pk %}">{% trans "Upload images" %}</a></li>
                         {% if perms.references.publish_reference %}
                             {% if reference.is_published %}
                                 <li class="no-print"><a href="#" id="publish" data-value="0" data-id="{{ reference.pk }}">{% trans "Unpublish" %}</a></li>
@@ -234,15 +234,15 @@
             {% endif %}
             {% if perms.references.change_reference %}
                 <li class="nav-header no-print">{% trans "Administration" %}</li>
-                <li class="no-print"><a href="{% url edit_reference reference.pk %}">{% trans "Edit reference" %}</a></li>
-                <li class="no-print"><a href="{% url translate_reference reference.pk %}">
+                <li class="no-print"><a href="{% url 'edit_reference' reference.pk %}">{% trans "Edit reference" %}</a></li>
+                <li class="no-print"><a href="{% url 'translate_reference' reference.pk %}">
                     {% if reference.has_translation %}
                         {% trans "Edit translation" %}
                     {% else %}
                         {% trans "Add translation" %}
                     {% endif %}
                 </a></li>
-                <li class="no-print"><a href="{% url reference_upload_images reference.pk %}">{% trans "Upload images" %}</a></li>
+                <li class="no-print"><a href="{% url 'reference_upload_images' reference.pk %}">{% trans "Upload images" %}</a></li>
                 {% if perms.references.publish_reference %}
                     {% if reference.is_published %}
                         <li class="no-print"><a href="#" id="publish" data-value="0" data-id="{{ reference.pk }}">{% trans "Unpublish" %}</a></li>
@@ -313,7 +313,7 @@
                 var btn = $(this).children().children('button');
                 btn.attr('disabled', true);
                 $.ajax({
-                    url: "{% url api.add_comment %}",
+                    url: "{% url 'api.add_comment' %}",
                     type: "POST",
                     data: form.serialize(),
                     success: function(msg) {
@@ -335,7 +335,7 @@
             {% if perms.references.publish_reference %}
             $("#publish").click(function(){
                 $.ajax({
-                    url: '{% url api.publish_reference %}',
+                    url: '{% url 'api.publish_reference' %}',
                     type: "POST",
                     data: "is_published=" + $("#publish").attr("data-value") + "&id=" + $("#publish").attr("data-id"),
                     success: function(msg) {
@@ -365,7 +365,7 @@
             {% if perms.references.approve_reference %}
             $("#approve").click(function(){
                 $.ajax({
-                    url: "{% url api.approve_reference %}",
+                    url: "{% url 'api.approve_reference' %}",
                     type: "POST",
                     data: "is_approved=" + $("#approve").attr("data-value") + "&id=" + $("#approve").attr("data-id"),
                     success: function(msg) {

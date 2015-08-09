@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
-
-import json
-from django.http import HttpResponse, Http404
+from django.http import Http404
+from django.http.response import JsonResponse
 
 
 def render_json(object=None, error=None, success=None):
+    json_data = object
     if object is None:
         if error is None and success is None:
             error = 'To few arguments to render json'
-            json_data = json.dumps({'error': error})
+            json_data = {'error': error}
         elif error is not None:
-            json_data = json.dumps({'error': error})
+            json_data = {'error': error}
         elif success is not None:
-            json_data = json.dumps({'success': success})
-
-    else:
-        json_data = json.dumps(object)
-    return HttpResponse(json_data, mimetype="application/json")
+            json_data = {'success': success}
+    return JsonResponse(json_data, safe=False)
 
 
 class login_or_token_required:

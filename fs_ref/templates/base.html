@@ -19,14 +19,14 @@
 
                             <ul class="nav">
                                 <li><img src="/static/img/logo-white.png" class="pull-left" alt="Lekang gruppen"/></li>
-                                <li><a href="{% url references %}">{% trans "References" %}</a></li>
+                                <li><a href="{% url 'references' %}">{% trans "References" %}</a></li>
 
                                 {% if perms.auth.change_user %}
-                                    <li><a href="{% url admin_users %}">{% trans "Users" %}</a></li>
+                                    <li><a href="{% url 'admin_users' %}">{% trans "Users" %}</a></li>
                                 {% endif %}
 
                                 {% if perms.references.change_customer %}
-                                    <li><a href="{% url list_customers %}">{% trans "Customers" %}</a></li>
+                                    <li><a href="{% url 'list_customers' %}">{% trans "Customers" %}</a></li>
                                 {% endif %}
 
                                 {% if perms.references.administrate_filters %}
@@ -38,17 +38,17 @@
                                         <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{% url edit_markets %}">{% trans "Edit market list" %}</a></li>
-                                        <li><a href="{% url edit_types %}">{% trans "Edit application list" %}</a></li>
-                                        <li><a href="{% url edit_filter_solutions %}">{% trans "Edit filter solution list" %}</a></li>
-                                        <li><a href="{% url edit_manufacturers %}">{% trans "Edit manufacturer list" %}</a></li>
+                                        <li><a href="{% url 'edit_markets' %}">{% trans "Edit market list" %}</a></li>
+                                        <li><a href="{% url 'edit_types' %}">{% trans "Edit application list" %}</a></li>
+                                        <li><a href="{% url 'edit_filter_solutions' %}">{% trans "Edit filter solution list" %}</a></li>
+                                        <li><a href="{% url 'edit_manufacturers' %}">{% trans "Edit manufacturer list" %}</a></li>
                                     </ul>
                                 </li>
                                 {% endif %}
                             </ul>
 
                             <ul class="nav pull-right">
-                                <li><a href="{% url logout %}">{% trans "Log out" %}</a></li>
+                                <li><a href="{% url 'logout' %}">{% trans "Log out" %}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -93,9 +93,9 @@
             <hr class="style1"/>
             <span class="no-print">
             {% if not user.is_authenticated %}
-                <a href="{% url login %}">{% trans "Login" %}</a>
+                <a href="{% url 'login' %}">{% trans "Login" %}</a>
             {% else %}
-                <a href="{% url logout %}">{% trans "Logout" %}</a>
+                <a href="{% url 'logout' %}">{% trans "Logout" %}</a>
             {% endif %}
             </span>
         {% endblock %}

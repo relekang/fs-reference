@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns('fs_ref.app.admin.views',
+urlpatterns = patterns('fs_ref.app.fs_admin.views',
     url(r'^markets/$', 'edit_markets', name='markets'),
     url(r'^markets/edit$', 'edit_markets', name='edit_markets'),
     url(r'^types/$', 'edit_types', name='types'),

@@ -10,9 +10,6 @@ LFS_URL = ''
 ADMINS = ()
 MANAGERS = ADMINS
 
-TEST_RUNNER = 'fs_ref.test_runner.TestSuiteRunner'
-TEST_EXCLUDE = ['django']
-
 if DEBUG:
     DATABASES = {
         'default': {

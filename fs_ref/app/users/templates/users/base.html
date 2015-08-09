@@ -7,7 +7,7 @@
     <h1>{% trans "Users" %}</h1>
     <div class="btn-toolbar">
         <div class="btn-group">
-            <a href="{% url add_user %}" class="btn"><i class="icon icon-plus-sign"></i> {% trans "New user" %}</a>
+            <a href="{% url 'add_user' %}" class="btn"><i class="icon icon-plus-sign"></i> {% trans "New user" %}</a>
         </div>
     </div>
     <table class="table table-bordered">
@@ -18,7 +18,7 @@
     </tr>
     {% for user in users %}
         <tr>
-            <td><a href="{% url edit_user user.pk %}">{{ user.username }}</a></td>
+            <td><a href="{% url 'edit_user' user.pk %}">{{ user.username }}</a></td>
             <td>{{ user.first_name }} {{ user.last_name }}</td>
             <td>{{ user.groups.all|comma_list }}</td>
         </tr>

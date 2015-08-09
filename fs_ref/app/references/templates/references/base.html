@@ -143,11 +143,11 @@
         <div class="btn-toolbar">
             <div class="btn-group">
                 {% if perms.references.add_reference %}
-                    <a href="{% url add_reference %}" class="btn"><i
+                    <a href="{% url 'add_reference' %}" class="btn"><i
                             class="icon icon-plus-sign"></i> {% trans "New reference" %}</a>
                 {% endif %}
                 {% if perms.references.approve_reference %}
-                    <a href="{% url all_references %}" class="btn"><i
+                    <a href="{% url 'all_references' %}" class="btn"><i
                             class="icon icon-list"></i> {% trans "View all references" %}</a>
                 {% endif %}
             </div>
@@ -166,7 +166,7 @@
                 data-type="{{ reference.type.pk }}" data-filter-solution="{{ reference.filter_solution.pk }}"
                 data-manufacturer="{{ reference.manufacturer.pk }}">
                 <div class="thumbnail">
-                {% if not modal %}<a href="{% url view_reference reference.slug %}">{% endif %}
+                {% if not modal %}<a href="{% url 'view_reference' reference.slug %}">{% endif %}
                     {% if reference.illustration1 %}
                         {% thumbnail reference.illustration1 "200x200" crop="center" as im %}
                             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
