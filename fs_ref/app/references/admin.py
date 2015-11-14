@@ -1,6 +1,7 @@
 from django.contrib import admin
 from fs_ref.app.comments.admin import CommentInline
-from fs_ref.app.references.models import Reference, Customer, Manufacturer, Market, Type, FilterSolution
+from fs_ref.app.references.models import (Customer, FilterSolution, Manufacturer, Market, Reference,
+                                          Type)
 
 
 class ReferenceAdmin(admin.ModelAdmin):

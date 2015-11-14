@@ -1,8 +1,10 @@
 import httplib
 import json
-from random import choice
 import string
 import urllib
+from new import instancemethod
+from random import choice
+
 from django.conf import settings
 from django.contrib.auth.models import User
 from fs_ref.core.util import parse_name
@@ -80,7 +82,6 @@ except ImportError:
     from django.utils._threading_local import local
 _thread_locals = local()
 
-from new import instancemethod
 
 
 def _do_set_current_user(user_fun):

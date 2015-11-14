@@ -3,9 +3,8 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext_lazy as _
-
-from fs_ref.core.shortcuts import render
 from fs_ref.app.users.forms import UserForm
+from fs_ref.core.shortcuts import render
 
 
 @permission_required('auth.change_user')

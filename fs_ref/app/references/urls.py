@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 
-
 urlpatterns = patterns('fs_ref.app.references.views',
     url(r'^$', 'list_references', name='references'),
     url(r'^all/$', 'list_all', name='all_references'),

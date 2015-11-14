@@ -1,6 +1,6 @@
 from django import forms
 from django.utils import translation
-from fs_ref.app.references.models import Market, Type, FilterSolution, Manufacturer
+from fs_ref.app.references.models import FilterSolution, Manufacturer, Market, Type
 
 
 class FilteringItemForm(forms.ModelForm):

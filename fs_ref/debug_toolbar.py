@@ -24,4 +24,3 @@ DEBUG_TOOLBAR_CONFIG = {
 }
 
 #Toolbar
-

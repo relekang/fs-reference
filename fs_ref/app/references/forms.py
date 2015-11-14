@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.query_utils import Q
 from django.forms.util import ErrorList
 from django.utils.translation import ugettext_lazy as _
-from fs_ref.app.references.models import Reference, Manufacturer, Market, Type, FilterSolution, Customer
-from fs_ref.app.references.models import EnglishTranslation
+from fs_ref.app.references.models import (Customer, EnglishTranslation, FilterSolution,
+                                          Manufacturer, Market, Reference, Type)
 
 
 class ReferenceSearchForm(forms.ModelForm):

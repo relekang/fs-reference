@@ -2,13 +2,11 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.core.urlresolvers import reverse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext_lazy as _
-
-from fs_ref.app.references.models import Reference, EnglishTranslation, Customer
-from fs_ref.app.references.forms import ReferenceForm, ReferenceSearchForm
-from fs_ref.app.references.forms import ReferenceFilesForm, CustomerForm
-from fs_ref.app.references.forms import EnglishTranslationForm
+from fs_ref.app.references.forms import (CustomerForm, EnglishTranslationForm, ReferenceFilesForm,
+                                         ReferenceForm, ReferenceSearchForm)
+from fs_ref.app.references.models import Customer, EnglishTranslation, Reference
 
 
 def list_references(request):

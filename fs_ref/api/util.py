@@ -27,7 +27,7 @@ class login_or_token_required:
             if u.is_authenticated():
                 return func(request, *args, **kwargs)
             else:
-                #Gives 404 until tokens are implemented
+                # Gives 404 until tokens are implemented
                 raise Http404
 
         return check_permission

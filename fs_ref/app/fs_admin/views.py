@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import permission_required
 from django.forms.models import modelformset_factory
 from django.shortcuts import render
 from django.utils.translation import ugettext_lazy as _
-from fs_ref.app.references.models import Market, Type, FilterSolution, Manufacturer
-from fs_ref.app.fs_admin.forms import MarketForm, TypeForm, FilterSolutionForm, ManufacturerForm
+from fs_ref.app.fs_admin.forms import FilterSolutionForm, ManufacturerForm, MarketForm, TypeForm
+from fs_ref.app.references.models import FilterSolution, Manufacturer, Market, Type
 
 
 @permission_required('references.change_market')

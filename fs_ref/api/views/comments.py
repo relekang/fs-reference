@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import get_object_or_404
+from fs_ref.api.util import login_or_token_required, render_json
 from fs_ref.app.comments.forms import CommentForm
 from fs_ref.app.comments.models import ReferenceComment
-from fs_ref.api.util import render_json, login_or_token_required
 
 
 @login_or_token_required()

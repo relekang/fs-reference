@@ -1,6 +1,5 @@
 from django.utils.translation import ugettext_lazy as _
 
-
 FLOW_UNITS = (
     (1, _('l/min')),
     (2, _('m^3/h')),

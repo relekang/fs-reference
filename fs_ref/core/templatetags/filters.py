@@ -1,4 +1,5 @@
 import re
+
 from django.template.base import Library
 from django.utils.translation import ugettext_lazy as _
 

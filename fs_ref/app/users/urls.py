@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf.urls import patterns, url
 
-
 urlpatterns = patterns('fs_ref.app.users.views',
     url(r'^$', 'list_users', name='admin_users'),
     url(r'^add/$', 'edit_user', name='add_user'),

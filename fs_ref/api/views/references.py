@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
+from functools import wraps
+
 from django.core.urlresolvers import reverse
 from django.db.models.query_utils import Q
 from django.http import Http404
@@ -7,8 +9,8 @@ from django.shortcuts import get_object_or_404
 from django.utils.translation import get_language
 from django.views.decorators.csrf import csrf_exempt
 from fs_ref.api.util import login_or_token_required, render_json
-from fs_ref.app.references.models import Reference, Market, Type, FilterSolution, Manufacturer, EnglishTranslation
-from functools import wraps
+from fs_ref.app.references.models import (EnglishTranslation, FilterSolution, Manufacturer, Market,
+                                          Reference, Type)
 
 
 def jsonp(f):
