@@ -8,6 +8,8 @@ TEMPLATE_DEBUG = DEBUG
 LFS_URL = ''
 LFS_TOKEN = ''
 
+LOGIN_REDIRECT_URL = '/references/all'
+
 ADMINS = ()
 MANAGERS = ADMINS
 
