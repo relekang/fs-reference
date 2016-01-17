@@ -34,6 +34,9 @@ class LfsAuthenticationBackend:
             return User.objects.get(username=username)
 
         user = None
+        if not self.URL:
+            return None
+
         params = urllib.urlencode({
             'username': username,
             'password': password,
@@ -81,7 +84,6 @@ try:
 except ImportError:
     from django.utils._threading_local import local
 _thread_locals = local()
-
 
 
 def _do_set_current_user(user_fun):
