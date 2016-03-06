@@ -63,7 +63,7 @@
                 <nav id="lang-menu" class="pull-right">
                     {% for lang_code, language in LANGUAGES %}
                         {% if not LANGUAGE_CODE == lang_code %}
-                        <a href="http://{% domain_for_lang lang_code %}{{ request.path|lang_path:lang_code }}"
+                        <a href="http://ref.{% domain_for_lang lang_code %}{{ request.path|lang_path:lang_code }}"
                            title="{{ language }}">
                           <img
                             src="/static/img/{{ lang_code }}.png" height="16" width="16"
