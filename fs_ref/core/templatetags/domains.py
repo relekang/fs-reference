@@ -12,4 +12,4 @@ def domain_for_lang(language_code):
             'dk': 'filterteknik.dk',
         }[language_code]
     except KeyError:
-        return ''
+        return 'filtersystem.no'
