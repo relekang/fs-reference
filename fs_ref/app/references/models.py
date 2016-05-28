@@ -6,8 +6,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import get_language
-from fs_ref.app.references.util import (COUNTRIES, FILTERING_LEVEL, FLOW_UNITS, FLUIDS,
-                                        VISCOSITY_TYPES)
+from fs_ref.app.references.util import (COUNTRIES, FILTERING_LEVEL, FLOW_UNITS, VISCOSITY_TYPES)
 from fs_ref.util import slugify
 from sorl.thumbnail import get_thumbnail
 
@@ -129,7 +128,7 @@ class Reference(models.Model):
     system_volume = models.IntegerField(null=True, blank=True, verbose_name=_('system volume'))
     temp = models.IntegerField(null=True, blank=True, verbose_name=_('temperature (C)'))
     viscosity = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True, verbose_name=_('viscosity'))
-    viscosity_type = models.IntegerField(max_length=50, choices=VISCOSITY_TYPES, default=1,
+    viscosity_type = models.IntegerField(choices=VISCOSITY_TYPES, default=1,
                                          verbose_name=_('viscosity type'))
     cost_reductions = models.CharField(max_length=50, blank=True, verbose_name=_('cost reductions'))
 

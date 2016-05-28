@@ -51,6 +51,7 @@ class ReferenceSearchForm(forms.ModelForm):
         else:
             self.fields['type'].choices = [('', '---------')]
 
+
 class ReferenceForm(forms.ModelForm):
     class Meta:
         model = Reference
@@ -68,7 +69,7 @@ class ReferenceForm(forms.ModelForm):
             'flow', 'flow_unit',
             'viscosity', 'viscosity_type',
             'pressure', 'temp',
-            'manufacturer','filter', 'filter_element',
+            'manufacturer', 'filter', 'filter_element',
             'analysis_before', 'analysis_after',
             'cost_reductions',
             'problem',
@@ -98,14 +99,18 @@ class ReferenceForm(forms.ModelForm):
         self.fields['date_installed'].widget.attrs['class'] = 'datepicker'
         self.fields['date_installed'].widget.attrs['placeholder'] = _('yyyy-mm-dd')
 
-        users = [('','---------')] + [(u.pk, "%s %s" % (u.first_name, u.last_name)) for u in User.objects.filter(is_active=True)]
+        users = [('', '---------')] + [(u.pk, "%s %s" % (u.first_name, u.last_name)) for u in User.objects.filter(is_active=True)]
         self.fields['salesman'].choices = users
 
     def clean(self):
         cleaned_data = super(ReferenceForm, self).clean()
         if cleaned_data['problem'] == '' and cleaned_data['solution'] == '':
-            self._errors['problem'] = ErrorList([_('Problem <strong>or</strong> solution has to be filled')])
-            self._errors['solution'] = ErrorList([_('Problem <strong>or</strong> solution has to be filled')])
+            self._errors['problem'] = ErrorList([
+                _('Problem <strong>or</strong> solution has to be filled')
+            ])
+            self._errors['solution'] = ErrorList([
+                _('Problem <strong>or</strong> solution has to be filled')
+            ])
 
         return cleaned_data
 
@@ -173,4 +178,4 @@ class ReferenceFilesForm(forms.ModelForm):
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
-        fields = ('name', 'website', 'industry')
+        fields = ('name', 'website', 'industry', 'country')
