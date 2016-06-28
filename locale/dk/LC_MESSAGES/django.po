@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-17 13:23+0100\n"
+"POT-Creation-Date: 2016-06-28 22:45+0200\n"
 "PO-Revision-Date: 2012-07-11 15:02+0100\n"
 "Last-Translator: Rolf Erik Lekang <me@rolflekang.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,204 +66,204 @@ msgstr "Rediger filter løsninger liste"
 msgid "Filter solutions was saved"
 msgstr "Filter løsninger blev gemt"
 
-#: fs_ref/app/references/forms.py:99
+#: fs_ref/app/references/forms.py:100
 msgid "yyyy-mm-dd"
 msgstr "yyyy-mm-dd"
 
-#: fs_ref/app/references/forms.py:107 fs_ref/app/references/forms.py:108
-#: fs_ref/app/references/forms.py:158 fs_ref/app/references/forms.py:159
+#: fs_ref/app/references/forms.py:109 fs_ref/app/references/forms.py:112
+#: fs_ref/app/references/forms.py:163 fs_ref/app/references/forms.py:164
 msgid "Problem <strong>or</strong> solution has to be filled"
 msgstr ""
 
-#: fs_ref/app/references/models.py:16 fs_ref/app/references/models.py:34
+#: fs_ref/app/references/models.py:15 fs_ref/app/references/models.py:33
 msgid "name"
 msgstr "navn"
 
-#: fs_ref/app/references/models.py:17
+#: fs_ref/app/references/models.py:16
 msgid "customer website"
 msgstr "kunde hjemmeside"
 
-#: fs_ref/app/references/models.py:18
+#: fs_ref/app/references/models.py:17
 msgid "customer industry"
 msgstr "kunde industri"
 
-#: fs_ref/app/references/models.py:19 fs_ref/app/references/models.py:102
+#: fs_ref/app/references/models.py:18 fs_ref/app/references/models.py:101
 msgid "country"
 msgstr "land"
 
-#: fs_ref/app/references/models.py:35
+#: fs_ref/app/references/models.py:34
 msgid "code"
 msgstr "Kode"
 
-#: fs_ref/app/references/models.py:45
+#: fs_ref/app/references/models.py:44
 msgid "English"
 msgstr "Engelsk"
 
-#: fs_ref/app/references/models.py:46
+#: fs_ref/app/references/models.py:45
 msgid "Norwegian"
 msgstr "Norsk"
 
-#: fs_ref/app/references/models.py:47
+#: fs_ref/app/references/models.py:46
 msgid "Danish"
 msgstr "Dansk"
 
-#: fs_ref/app/references/models.py:48
+#: fs_ref/app/references/models.py:47
 msgid "Swedish"
 msgstr "Svensk"
 
-#: fs_ref/app/references/models.py:92 fs_ref/app/references/models.py:218
+#: fs_ref/app/references/models.py:91 fs_ref/app/references/models.py:217
 msgid "title"
 msgstr "titel"
 
-#: fs_ref/app/references/models.py:99
+#: fs_ref/app/references/models.py:98
 msgid "approved"
 msgstr "godkendt"
 
-#: fs_ref/app/references/models.py:100
+#: fs_ref/app/references/models.py:99
 msgid "published"
 msgstr "offentliggjort"
 
-#: fs_ref/app/references/models.py:103
+#: fs_ref/app/references/models.py:102
 msgid "market"
 msgstr "marked"
 
-#: fs_ref/app/references/models.py:104
+#: fs_ref/app/references/models.py:103
 msgid "application"
 msgstr "applikation"
 
-#: fs_ref/app/references/models.py:105
+#: fs_ref/app/references/models.py:104
 msgid "filter solution"
 msgstr "filterløsning"
 
-#: fs_ref/app/references/models.py:106
+#: fs_ref/app/references/models.py:105
 msgid "filter manufacturer"
 msgstr "filter producent"
 
-#: fs_ref/app/references/models.py:108
+#: fs_ref/app/references/models.py:107
 msgid "customer"
 msgstr "kunde"
 
-#: fs_ref/app/references/models.py:109
+#: fs_ref/app/references/models.py:108
 msgid "customer contact"
 msgstr "kunde kontakt"
 
-#: fs_ref/app/references/models.py:110
+#: fs_ref/app/references/models.py:109
 msgid "view customer in public"
 msgstr "se kunde i den offentlige"
 
-#: fs_ref/app/references/models.py:111
+#: fs_ref/app/references/models.py:110
 msgid "borrowed products before purchase"
 msgstr "lånte produkter før køb"
 
-#: fs_ref/app/references/models.py:112
+#: fs_ref/app/references/models.py:111
 msgid "salesman"
 msgstr "sælger"
 
-#: fs_ref/app/references/models.py:114
+#: fs_ref/app/references/models.py:113
 msgid "install date"
 msgstr "installeret dato"
 
-#: fs_ref/app/references/models.py:116 fs_ref/app/references/models.py:225
+#: fs_ref/app/references/models.py:115 fs_ref/app/references/models.py:224
 msgid "subtitle"
 msgstr "undertitel"
 
-#: fs_ref/app/references/models.py:117 fs_ref/app/references/models.py:226
+#: fs_ref/app/references/models.py:116 fs_ref/app/references/models.py:225
 msgid "machine"
 msgstr "maskine"
 
-#: fs_ref/app/references/models.py:118 fs_ref/app/references/models.py:227
+#: fs_ref/app/references/models.py:117 fs_ref/app/references/models.py:226
 msgid "machine type"
 msgstr "maskin type"
 
-#: fs_ref/app/references/models.py:120 fs_ref/app/references/models.py:229
+#: fs_ref/app/references/models.py:119 fs_ref/app/references/models.py:228
 msgid "fluid"
 msgstr "væske"
 
-#: fs_ref/app/references/models.py:121 fs_ref/app/references/models.py:230
+#: fs_ref/app/references/models.py:120 fs_ref/app/references/models.py:229
 msgid "fluid manufacturer"
 msgstr "væske producent"
 
-#: fs_ref/app/references/models.py:122 fs_ref/app/references/models.py:231
+#: fs_ref/app/references/models.py:121 fs_ref/app/references/models.py:230
 msgid "fluid type"
 msgstr "væske type"
 
-#: fs_ref/app/references/models.py:123 fs_ref/app/references/models.py:232
+#: fs_ref/app/references/models.py:122 fs_ref/app/references/models.py:231
 msgid "filtering level"
 msgstr "filtrering niveau"
 
-#: fs_ref/app/references/models.py:125
+#: fs_ref/app/references/models.py:124
 msgid "filtering standard"
 msgstr "filtrering niveau"
 
-#: fs_ref/app/references/models.py:126
+#: fs_ref/app/references/models.py:125
 msgid "flow"
 msgstr "flow"
 
-#: fs_ref/app/references/models.py:128
+#: fs_ref/app/references/models.py:127
 msgid "pressure (bar)"
 msgstr "tryk"
 
-#: fs_ref/app/references/models.py:129
+#: fs_ref/app/references/models.py:128
 msgid "system volume"
 msgstr "system volume"
 
-#: fs_ref/app/references/models.py:130
+#: fs_ref/app/references/models.py:129
 msgid "temperature (C)"
 msgstr "temperatur"
 
-#: fs_ref/app/references/models.py:131
+#: fs_ref/app/references/models.py:130
 msgid "viscosity"
 msgstr ""
 
-#: fs_ref/app/references/models.py:133
+#: fs_ref/app/references/models.py:132
 msgid "viscosity type"
 msgstr ""
 
-#: fs_ref/app/references/models.py:134 fs_ref/app/references/models.py:233
+#: fs_ref/app/references/models.py:133 fs_ref/app/references/models.py:232
 msgid "cost reductions"
 msgstr ""
 
-#: fs_ref/app/references/models.py:136 fs_ref/app/references/models.py:235
+#: fs_ref/app/references/models.py:135 fs_ref/app/references/models.py:234
 msgid "filter"
 msgstr "filter"
 
-#: fs_ref/app/references/models.py:137 fs_ref/app/references/models.py:236
+#: fs_ref/app/references/models.py:136 fs_ref/app/references/models.py:235
 msgid "filter element"
 msgstr "filter element"
 
-#: fs_ref/app/references/models.py:139 fs_ref/app/references/models.py:238
+#: fs_ref/app/references/models.py:138 fs_ref/app/references/models.py:237
 msgid "analysis before"
 msgstr "analyse før"
 
-#: fs_ref/app/references/models.py:140 fs_ref/app/references/models.py:239
+#: fs_ref/app/references/models.py:139 fs_ref/app/references/models.py:238
 msgid "analysis after"
 msgstr "analyse efter"
 
-#: fs_ref/app/references/models.py:142 fs_ref/app/references/models.py:241
+#: fs_ref/app/references/models.py:141 fs_ref/app/references/models.py:240
 msgid "problem"
 msgstr "problem"
 
-#: fs_ref/app/references/models.py:143 fs_ref/app/references/models.py:242
+#: fs_ref/app/references/models.py:142 fs_ref/app/references/models.py:241
 msgid "solution"
 msgstr "løsning"
 
-#: fs_ref/app/references/models.py:146
+#: fs_ref/app/references/models.py:145
 msgid "illustration 1"
 msgstr "illustration 1."
 
-#: fs_ref/app/references/models.py:149
+#: fs_ref/app/references/models.py:148
 msgid "illustration 2"
 msgstr "illustration 2."
 
-#: fs_ref/app/references/models.py:151
+#: fs_ref/app/references/models.py:150
 msgid "illustration 3"
 msgstr "illustration 3."
 
-#: fs_ref/app/references/models.py:153
+#: fs_ref/app/references/models.py:152
 msgid "file"
 msgstr "fil"
 
-#: fs_ref/app/references/models.py:217
+#: fs_ref/app/references/models.py:216
 #, fuzzy
 #| msgid "References"
 msgid "reference"
@@ -300,7 +300,7 @@ msgstr "Rediger bruger"
 
 #: fs_ref/app/references/templates/references/admin/list.html:5
 #: fs_ref/app/references/templates/references/base.html:3
-#: fs_ref/templates/base.html:22 fs_ref/templates/base.html.py:73
+#: fs_ref/templates/base.html:22 fs_ref/templates/base.html.py:77
 msgid "References"
 msgstr "Referencer"
 
@@ -670,11 +670,11 @@ msgstr "Sverige"
 msgid "Norway"
 msgstr "Norge"
 
-#: fs_ref/app/references/views.py:72
+#: fs_ref/app/references/views.py:71
 msgid "You do not have permission to view the reference you requested"
 msgstr "Du har ikke tilladelse til at se den reference, du ønskede"
 
-#: fs_ref/app/references/views.py:108
+#: fs_ref/app/references/views.py:107
 msgid "The files was uploaded"
 msgstr "Filerne blev uploadet"
 
@@ -762,13 +762,13 @@ msgstr "Rediger producent liste"
 msgid "Log out"
 msgstr "Log ud"
 
-#: fs_ref/templates/base.html:96 fs_ref/templates/registration/login.html:4
+#: fs_ref/templates/base.html:100 fs_ref/templates/registration/login.html:4
 #: fs_ref/templates/registration/login.html:7
 #: fs_ref/templates/registration/login.html:19
 msgid "Login"
 msgstr "Login"
 
-#: fs_ref/templates/base.html:98
+#: fs_ref/templates/base.html:102
 msgid "Logout"
 msgstr ""
 
