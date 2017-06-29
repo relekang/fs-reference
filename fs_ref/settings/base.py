@@ -8,6 +8,7 @@ TEMPLATE_DEBUG = DEBUG
 LFS_URL = ''
 LFS_TOKEN = ''
 
+LFS_LOGIN_PATH = '/web/remote-auth.r'
 LOGIN_REDIRECT_URL = '/references/all'
 
 ADMINS = ()

@@ -18,7 +18,7 @@ def generate_password(length=8, chars=string.letters + string.digits):
 class LfsAuthenticationBackend:
 
     URL = settings.LFS_URL
-    PATH = '/lfsstatic/lfsframeset.htm?page=remote-auth'
+    PATH = settings.LFS_LOGIN_PATH
     HEADERS = {
         "Content-type": "application/x-www-form-urlencoded",
         "Accept": "text/plain"
